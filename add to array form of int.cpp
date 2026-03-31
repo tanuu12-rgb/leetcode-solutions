@@ -1,4 +1,4 @@
-//TC:O(nlogn)
+//TC:O(nlogk)
 //SC:O(1)
 class Solution {
 public:
