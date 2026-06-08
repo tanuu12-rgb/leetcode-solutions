@@ -1,0 +1,27 @@
+//TC:O(k) k is the number of cards
+//SC:O(1)
+//sliding window
+class Solution {
+public:
+    int maxScore(vector<int>& cardPoints, int k) {
+        int lsum=0;
+        int rsum=0;
+        int maxl=0;
+        int n=cardPoints.size();
+        for(int i=0; i<k; i++)
+        {
+            lsum+=cardPoints[i];
+            
+        }
+        maxl=lsum;
+        int rindex=n-1;
+        for(int i=k-1; i>=0; i--)
+        {
+            lsum=lsum-cardPoints[i];
+            rsum+=cardPoints[rindex];
+            rindex--;
+            maxl=max(maxl,lsum+rsum);
+        } 
+        return maxl;
+    }
+};
